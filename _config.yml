@@ -1,22 +1,22 @@
 # Dependencies
 markdown:         kramdown
-highlighter:      rouge
+highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
-
-remote_theme: poole/hyde
 
 # Setup
 title:            Gigant
 tagline:          'Deep Learning Engineer'
 description:      'Deep Learning'
 url:              https://github.com/giganttheo
-baseurl:          ''
+baseurl:          /
 paginate:         10
 
 kramdown:
   parse_block_html: true
+  math_engine: mathjax
+  syntax_highlighter: pygments
 
 # About and contact
 author:
