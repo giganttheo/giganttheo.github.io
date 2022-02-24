@@ -3,27 +3,14 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+My name is Théo Gigant, I am a Deep Learning Engineer with experience in research and teaching for Computer Vision and Natural Language Processing topics.
 
-There are currently two themes built on Poole:
+• I am experienced in most deep learning frameworks : Pytorch / TensorFlow / Keras / JAX-Flax
 
-* [Hyde](https://hyde.getpoole.com)
-* [Lanyon](https://lanyon.getpoole.com)
+• I will be suggesting ideas for your Computer Vision & NLP tasks using state-of-the-art models and papers
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+• I have worked on various tasks : image & text classification, Image/Text similarity, image style transfer, image generation, image denoising, span question answering, video understanding, speech recognition, people detection & counting
 
-## Setup
 
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](https://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Atom](https://atom.io)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+You can contact me by [mail](mailto:contact@theogigant.fr), or on [LinkedIn](https://www.linkedin.com/in/theo-gigant/)
