@@ -9,7 +9,7 @@ permalink:        pretty
 title:            Gigant
 tagline:          'Deep Learning Engineer'
 description:      'Deep Learning'
-url:              https://github.com/giganttheo
+url:              https://github.com/giganttheo/giganttheo.github.io
 baseurl:          /
 paginate:         10
 
@@ -25,12 +25,6 @@ author:
 
 github:           https://github.com/giganttheo
 
-# Gems
-plugins:
-  - jekyll-paginate
-  - jekyll-gist
-  - jekyll-archives
-  - jekyll-seo-tag
 
 # Custom vars
 version:          1.0.0
