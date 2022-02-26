@@ -1,29 +1,30 @@
 # Dependencies
 markdown:         kramdown
-highlighter:      rouge
+highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
 
 # Setup
-title:            Ray
-tagline:          'UCLA CS'
-description:      'CS & Math Stuff'
-url:              http://oneraynyday.github.io
-baseurl:          ''
-kramdown:
-  parse_block_html: true
-
-author:
-  name:           'Ray Zhang'
-
+title:            Gigant
+tagline:          'Deep Learning Engineer'
+description:      'Deep Learning'
+url:              https://github.com/giganttheo/giganttheo.github.io
+baseurl:          /
 paginate:         10
 
+kramdown:
+  parse_block_html: true
+  math_engine: mathjax
+  syntax_highlighter: pygments
+
+# About and contact
+author:
+  name:           'Théo Gigant'
+  url:            https://huggingface.co/gigant
+
+github:           https://github.com/giganttheo
+
+
 # Custom vars
-version:          2.1.0
-
-github:           https://github.com/oneraynyday
-
-plugins:
-  - jekyll-archives
-  - jekyll-seo-tag
+version:          1.0.0
