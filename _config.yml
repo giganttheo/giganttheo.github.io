@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         kramdown
-highlighter:      pygments
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
@@ -9,21 +9,25 @@ permalink:        pretty
 title:            Gigant
 tagline:          'Deep Learning Engineer'
 description:      'Deep Learning'
-url:              https://github.com/giganttheo/giganttheo.github.io
-baseurl:          /
-paginate:         10
-
+url:              https://giganttheo.github.io
+baseurl:          ''
 kramdown:
   parse_block_html: true
   math_engine: mathjax
-  syntax_highlighter: pygments
 
-# About and contact
 author:
   name:           'Théo Gigant'
-  url:            https://huggingface.co/gigant
+
+paginate:         10
+
+# Custom vars
+version:          2.1.0
 
 github:           https://github.com/giganttheo
+
+plugins:
+  - jekyll-archives
+  - jekyll-seo-tag
 
 
 # Custom vars
