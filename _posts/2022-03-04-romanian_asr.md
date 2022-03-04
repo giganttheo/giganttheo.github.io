@@ -5,13 +5,8 @@ author:
   name: Théo Gigant
   link: https://github.com/giganttheo
 use_math: true
-category: audio, transformers, speech-recognition
+category: speech-recognition
 ---
-
-# Introduction to State-Of-The-Art Speech Recognition Techniques
-
-
-
 From January 24th to February 7th 2022, I joined HuggingFace's [Robust Speech Challenge](https://discuss.huggingface.co/t/open-to-the-community-robust-speech-recognition-challenge/13614) and fine-tuned a Romanian Speech Recognition model that ranked Top-1 on the event leaderboard and even beat the previous state of the art on Mozilla Foundation's Common Voice test split.
 
 Here is a comprehensive blog post about the technologies involved.
@@ -173,7 +168,7 @@ The Wav2Vec2 model, as the name suggests, gets audio waveform as an input and ou
 
 We will get from those latent representations to a text format via a "Language Model Head", *eg* a classification head that, for every time-step of the audio processor outputs a probability of it being that or that letter.
 
-<img src=https://i.ibb.co/Zzdfv21/lm-head.png width="800">
+![image](https://i.ibb.co/Zzdfv21/lm-head.png)
 
 We will need a "Vocabulary" that consists of all the characters that will be possible outputs.
 
