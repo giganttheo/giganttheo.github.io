@@ -116,7 +116,7 @@ print(f"Ground truth : {ground_truth}")
 
 ### How to make the model work with large audio files?
 
-To make sure the model will work with arbitrarly large audio files, we will have to use a trick involving the parameters `chunk_length_s` and `stride_length_s` of the automatic speech recognition pipeline on `transformers`.
+To make sure the model will work with arbitrarly large audio files, we will have to use a trick involving the parameters `chunk_length_s` and `stride_length_s` of the automatic speech recognition pipeline in `transformers`.
 
 What chunking is doing is cutting the input in chunks of a fixed length (chosen with the parameter `chunk_length_s`), overlaped with strides of a fixed length (chosen with the parameter `stride_length_s`).
 
@@ -138,7 +138,7 @@ This technique is described in more details in [this HuggingFace blog post](http
 
 ## Wav2Vec 2.0 XLS-R
 
-The model used is based on Meta AI's Wav2Vec 2.0, which uses self-supervision to learn the structure of speech from raw audio data. The method is explained on [this blog post](https://ai.facebook.com/blog/wav2vec-20-learning-the-structure-of-speech-from-raw-audio/) or in more detail on the paper ["wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations"](https://arxiv.org/abs/2006.11477).
+The model used is based on Meta AI's Wav2Vec 2.0, which uses self-supervision to learn the structure of speech from raw audio data. The method is explained in [this blog post](https://ai.facebook.com/blog/wav2vec-20-learning-the-structure-of-speech-from-raw-audio/) or in more detail in the paper ["wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations"](https://arxiv.org/abs/2006.11477).
 
 ![picture](https://raw.githubusercontent.com/patrickvonplaten/scientific_images/master/xls_r.png)
 
@@ -272,7 +272,7 @@ Learning of Speech Representations](https://arxiv.org/pdf/2006.11477.pdf) Table 
 However, as I am writting this blog post, the [`pyctcdecode`](https://github.com/kensho-technologies/pyctcdecode) library does not yet implement Transformer language models.
 And the [`Wav2Vec2ProcessorWithLM`](https://huggingface.co/docs/transformers/v4.16.2/en/model_doc/wav2vec2#transformers.Wav2Vec2ProcessorWithLM) class from the `transformers` library only supports this library for CTC, LM-boosted output.
 
-According to Patrick Von Platen on [his article](https://huggingface.co/blog/wav2vec2-with-ngram), a Transformer-language model gives better results than a $5$-gram language model but comes with a cost in computation that may not be worth-it for most use cases. 
+According to Patrick Von Platen in [his article](https://huggingface.co/blog/wav2vec2-with-ngram), a Transformer-language model gives better results than a $5$-gram language model but comes with a cost in computation that may not be worth-it for most use cases. 
 
 >E.g., for the large Wav2Vec2 checkpoint that was fine-tuned on 10min only, an n-gram reduces the word error rate (WER) compared to no LM by ca. 80% while a Transformer-based LM only reduces the WER by another 23% compared to the n-gram. This relative WER reduction becomes less, the more data the acoustic model has been trained on. E.g., for the large checkpoint a Transformer-based LM reduces the WER by merely 8% compared to an n-gram LM whereas the n-gram still yields a 21% WER reduction compared to no language model.
 
