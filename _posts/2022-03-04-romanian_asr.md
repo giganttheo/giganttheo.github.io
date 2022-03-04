@@ -181,7 +181,7 @@ The vocabulary that I used for the Romanian model is this one :
 
 It consists of the 31 letters of the Romanian alphabet, as well as some special tokens :
 
-* "|" (equivalent to the ϵ in the previous image) refers to the "void" token. It is also handy to make a distinction between the same letter that is stressed over multiple time-steps or two or more repetitions of the same letter.
+* "\|" (equivalent to the ϵ in the previous image) refers to the "void" token. It is also handy to make a distinction between the same letter that is stressed over multiple time-steps or two or more repetitions of the same letter.
 * "[UNK]" is the token for unknown characters
 * "[PAD]" is the token for padding (*ie* arbitrarly filling the space so every input is the same size)
 
@@ -221,13 +221,6 @@ model_path = "facebook/wav2vec2-xls-r-300m" #pretrained model path on the Huggin
 model = AutoModelForCTC.from_pretrained(model_path)
 ```
 
-    Some weights of the model checkpoint at facebook/wav2vec2-xls-r-300m were not used when initializing Wav2Vec2ForCTC: ['project_hid.weight', 'quantizer.codevectors', 'project_q.weight', 'project_q.bias', 'quantizer.weight_proj.weight', 'quantizer.weight_proj.bias', 'project_hid.bias']
-    - This IS expected if you are initializing Wav2Vec2ForCTC from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-    - This IS NOT expected if you are initializing Wav2Vec2ForCTC from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-    Some weights of Wav2Vec2ForCTC were not initialized from the model checkpoint at facebook/wav2vec2-xls-r-300m and are newly initialized: ['lm_head.bias', 'lm_head.weight']
-    You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-    
-
 This warning should be prompted when instantiating the CTC version from the pretrained self-supervised checkpoint :
 
 ```
@@ -251,7 +244,7 @@ A $n$-gram is a contiguous sequence of $n$ items of a sample.
 
 > In our case we will work with sequences of tokens from our alphabet (so the 31 Romanian letters + 3 special tokens). The language model that works with this data is called a character-level language model.
 
-A $n$-gram model is a probabilistic model that predicts the next item only from the $n - 1$ previous items with a discrete-time Markov chain of order $(n - 1)$, *ie* it  for a token $w_k$ in the position $k$, $${\rm I\!P}(w_k) = {\rm I\!P}(w_k|w_{k-n},...,w_{k-1})$$
+A $n$-gram model is a probabilistic model that predicts the next item only from the $n - 1$ previous items with a discrete-time Markov chain of order $(n - 1)$, *ie* it  for a token $w_k$ in the position $k$, $${\rm I\!P}(w_k) = {\rm I\!P}(w_k\|w_{k-n},...,w_{k-1})$$
 
 The probabilities can be estimated for a specific dataset by using the [Kneser-Ney smoothing](https://en.wikipedia.org/wiki/Kneser%E2%80%93Ney_smoothing) method for calculating probabilities of $n$-grams in a corpus.
 
