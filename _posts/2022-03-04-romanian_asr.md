@@ -246,7 +246,7 @@ A $n$-gram is a contiguous sequence of $n$ items of a sample.
 
 A $n$-gram model is a probabilistic model that predicts the next item only from the $n - 1$ previous items with a discrete-time Markov chain of order $(n - 1)$, *ie* it  for a token $w_k$ in the position $k$,
 
-${\rm I\!P}(w_k) = {\rm I\!P}(w_k\|w_{k-n},...,w_{k-1})$
+$${\rm I\!P}(w_k) = {\rm I\!P}(w_k\vert w_{k-n},...,w_{k-1})$$
 
 The probabilities can be estimated for a specific dataset by using the [Kneser-Ney smoothing](https://en.wikipedia.org/wiki/Kneser%E2%80%93Ney_smoothing) method for calculating probabilities of $n$-grams in a corpus.
 
