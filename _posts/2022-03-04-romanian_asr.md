@@ -154,7 +154,7 @@ The Wav2Vec2 model, as described in the paper, is composed of
 
 The output of the feature encoder is fed into a convolutional layer, which acts as a relative positional embedding, and then into the context network.
 
-To fine-tune this model on new supervised tasks, those latent representations can then be fed to randomly initialized layers that will be trained on the task.
+To fine-tune this model on new supervised tasks, those latent representations can then be fed to randomly initialized layers that will be trained on the task we are interested in.
 
 ## Adapting the model to the Speech Recognition task
 
@@ -166,7 +166,7 @@ As explained earlier, the base Wav2Vec2 model is made for self-supervised pre-tr
 
 The Wav2Vec2 model, as the name suggests, gets audio waveform as an input and outputs some vectors, or latent representations.
 
-We will get from those latent representations to a text format via a "Language Model Head", *eg* a classification head that, for every time-step of the audio processor outputs a probability of it being that or that letter.
+We will get from those latent representations to a text format via a "Language Model Head", *eg* a classification head that, for every time-step of the audio processor outputs a probability of it being this or that letter.
 
 ![image](https://i.ibb.co/Zzdfv21/lm-head.png)
 
@@ -202,7 +202,7 @@ This problem can appear in various tasks, such as handwriting recognition, or wh
 
 CTC also refers to the associated loss function.
 
-If you want to understand sequence modeling with CTC, make sur to check this really nice article on Distill : ["Sequence Modeling
+If you want to understand sequence modeling with CTC, make sur to check this article on Distill : ["Sequence Modeling
 With CTC"](https://distill.pub/2017/ctc/).
 
 ### Example with the `transformers` library
@@ -228,7 +228,7 @@ Some weights of Wav2Vec2ForCTC were not initialized from the model checkpoint at
 ['lm_head.bias', 'lm_head.weight']
 ```
 
-And it is exactly what we want : to add a language model head (*ie* a text output) to the model.
+And it is exactly what we want : to add a language model head (*ie* a text output) to the pretrained model.
 
 The parameters of this head did not exist during the pre-training so they are initialized randomly and will need some fine-tuning.
 
@@ -252,7 +252,7 @@ The probabilities can be estimated for a specific dataset by using the [Kneser-N
 
 
 
-### Boost the Speech Recognition Model results using a $n$-gram Language Model
+### Boosting the Speech Recognition Model results using a $n$-gram Language Model
 
 The usual way to decode a CTC-trained network is through beam search decoding.
 
@@ -260,7 +260,7 @@ The beam search decoding, and how to add character-level language model, are exp
 ](https://towardsdatascience.com/beam-search-decoding-in-ctc-trained-neural-networks-5a889a3d85a7)
 
 
-Check out this [blog post](https://huggingface.co/blog/wav2vec2-with-ngram) from Patrick von Platen for a guide to use the `kenlm` and `pyctcdecode` libraries with HuggingFace's `transformers` to boost the Wav2Vec2 CTC model results by adding a n-gram language model.
+Check out this [blog post](https://huggingface.co/blog/wav2vec2-with-ngram) from Patrick von Platen for a guide to use the `kenlm` and `pyctcdecode` libraries with HuggingFace's `transformers` to boost the Wav2Vec2 CTC model results by adding a $n$-gram language model.
 
 ### Boost the Speech Recognition Model results using a Transformer Language Model
 
