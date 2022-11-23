@@ -1,5 +1,7 @@
 # Site Build Settings
 
+url: http://giganttheo.github.io
+
 # jekyll-paginate configuration
 paginate:            5
 
