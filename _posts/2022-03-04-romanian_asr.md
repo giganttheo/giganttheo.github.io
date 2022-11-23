@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Introduction to State-Of-The-Art Speech Recognition Techniques
-author:
-  name: Théo Gigant
-  link: https://github.com/giganttheo
+author: Théo Gigant
 use_math: true
 category: speech-recognition
+image: portrait-of-a-scribe.jpg
 ---
+
+*Illustration: Portrait of a Scribe (Bartolomeo Passerotti, 1560)*
+
 From January 24th to February 7th 2022, I joined HuggingFace's [Robust Speech Challenge](https://discuss.huggingface.co/t/open-to-the-community-robust-speech-recognition-challenge/13614) and fine-tuned a Romanian Speech Recognition model that ranked Top-1 on the event leaderboard and even beat the previous state of the art on Mozilla Foundation's Common Voice test split.
 
 Here is a comprehensive blog post about the technologies involved.

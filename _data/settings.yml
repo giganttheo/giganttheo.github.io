@@ -1,0 +1,30 @@
+# Change 'comments' to true for Disqus comments
+disqus:
+  comments: false
+  disqus_shortname: 'millennial-3'
+
+# If you are not using Google Analytics, please change 'google-ID' to an empty string
+google-ID: ''
+
+menu:
+- {name: 'Blog',       url: ''}
+- {name: 'Resume',      url: 'assets/resume/CV_GIGANT_2022.pdf'}
+
+# Available social icons are powered by Font Awesome, so you can use any icon that they offer
+social:
+- {icon: 'twitter', link:    'https://twitter.com/gigant_theo'}
+- {icon: 'linkedin', link:    'https://www.linkedin.com/in/theo-gigant/'}
+- {icon: 'user', link: 'https://huggingface.co/gigant'}
+- {icon: 'github', link: 'https://github.com/giganttheo'}
+- {icon: 'envelope', link:   'mailto:contact@theogigant.fr'}
+# - {icon: 'rss-square', link: 'feed.xml'}
+# - {icon: 'rss-square', link: 'rss-feed.xml'}
+
+# Customize site text
+pagination:
+  next_page: 'Next page'
+  previous_page: 'Previous page'
+
+sharing_button_prompt: 'Feel free to share!'
+
+post_date_prefix: 'Written on'

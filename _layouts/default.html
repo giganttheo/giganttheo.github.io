@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
+<!doctype html>
+<html>
   {% include head.html %}
   {% if page.use_math %}
       {% include mathjax_support.html %}
   {% endif %}
-  <body class="theme-base-0c">
-
-    {% include sidebar.html %}
-
-    <div class="content container">
-      {{ content }}
+  <body>
+    <div class="container">
+      {% include header.html %}
+      <div class="content-wrapper">
+        {{ content }}
+      </div>
+      {% include footer.html %}
     </div>
-    {% include analytics.html %}
   </body>
-
 </html>

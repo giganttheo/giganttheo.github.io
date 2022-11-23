@@ -1,34 +1,19 @@
-# Dependencies
-markdown:         kramdown
-highlighter:      rouge
+# Site Build Settings
 
-# Permalinks
-permalink:        pretty
+# jekyll-paginate configuration
+paginate:            5
 
-# Setup
-title:            Gigant
-tagline:          'Deep Learning Engineer'
-description:      'Deep Learning'
-url:              https://giganttheo.github.io
-baseurl:          ''
-kramdown:
-  parse_block_html: true
-  math_engine: mathjax
+# Build settings
+markdown:            kramdown
+highlighter:         rouge
+permalink:           /:title
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
-author:
-  name:           'Théo Gigant'
+# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
+title:		           "Théo Gigant"
+description:	       "PhD student working on multimodal summarization @ L2S"
+author:              "Théo Gigant"
 
-paginate:         10
-
-# Custom vars
-version:          2.1.0
-
-github:           https://github.com/giganttheo
-
-plugins:
-  - jekyll-archives
-  - jekyll-seo-tag
-
-
-# Custom vars
-version:          1.0.0
+# RSS 2.0 can be used instead of Atom by uncommenting following two lines
+#feed:
+#  path: rss-feed.xml
