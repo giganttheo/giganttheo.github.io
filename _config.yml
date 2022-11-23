@@ -1,8 +1,7 @@
 # Site Build Settings
 
-sass:
-  sass_dir: assets/css
-  style: :nested
+url:              https://giganttheo.github.io
+baseurl:          ''
 
 # jekyll-paginate configuration
 paginate:            5
