@@ -14,13 +14,11 @@ image: catalan-landscape.jpg
 
 ### Graphs describe and model complex systems
 
-In DGL's [graph 101](https://docs.dgl.ai/en/0.8.x/guide/graph-basic.html), graphs are introduced like this:
+Graphs are mathematical structures, used to represent entities and their relations.
 
-> A graph G=(V,E) is a structure used to represent entities and their relations. It consists of two sets – the set of nodes V (also called vertices) and the set of edges E (also called arcs). An edge (u,v)∈E connecting a pair of nodes u and v indicates that there is a relation between them. The relation can either be undirected, e.g., capturing symmetric relations between nodes, or directed, capturing asymmetric relations.
+A graph $G = (V,E)$ is defined by a set of nodes $V$ and a set of edges $E \subseteq \\{ (x,y) \vert (x,y) \in V^2, x \neq y \\}$ that connect them.
 
-> For example, if a graph is used to model the friendships relations of people in a social network, then the edges will be undirected as friendship is mutual; however, if the graph is used to model how people follow each other on Twitter, then the edges are directed. Depending on the edges’ directionality, a graph can be directed or undirected.
-
-More formally, an undirected graph $G = (V, E)$ is defined by $V$ a set of nodes and $E \subseteq \\{ (x,y) \vert (x,y) \in V^2, x \neq y \\}$ a set of edges.
+Nodes represent entities, and the edges are connecting pairs of nodes to indicate the relation between them. Nodes and edges can have features to encode information about them. Edges can also be directed to capture asymmetric relations.
 
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVVYJclDBmKnQWPKYsw4IU2aJ4AIySSusuCw&usqp=CAU)
 
@@ -40,14 +38,11 @@ For instance in the [`jraph`](https://github.com/deepmind/jraph) library, a grap
 * `n_edge`: number of edges
 * `globals`: global feature (*eg* graph label)
 
-
 Graphs are a structure that conveniently model complex systems, such as multi-modal documents.
 
-As an example, in *Extractive Text-Image Summarization with Relation-Enhanced Graph Attention Network*, Xie *et al* construct this graph to model a document that contains texts and images:
+As an example, in *Extractive Text-Image Summarization with Relation-Enhanced Graph Attention Network*, Xie *et al* construct this graph to model an article that contains texts and images:
 
 ![](https://i.ibb.co/Tb8dXdG/regatsum.png)
-
-
 
 ### Structured representation of documents
 
@@ -58,29 +53,28 @@ There are multiple ways a document can be represented. A textual document can no
 
 The graph representation is the most general, and the most powerful, as sequence and bag are specific graphs.
 
-* The **bag** representation is simple to create and store and it allows to attend to all the words at the same time. This representation is really convenient for training because it is parallelizable and order structure can be recovered by using positional encoding, it is the representation used in the Transformer model for instance. However this representation is computationally expensive for large documents as it forces to attend to the whole document at the same time; *eg* attention layers use this representation and have a quadratic complexity over the size of the input.
+* The **bag** representation is simple to create and store and it allows to attend to all the words at the same time. This representation is really convenient for training because it is parallelizable and order structure can be recovered by using positional encoding. It is the representation used in the Transformer model for instance. However this representation is computationally expensive for large documents as it forces to attend to the whole document at the same time. Attention layers for instance use this representation and have a quadratic complexity over the size of the input, which is not ideal for scaling to large documents.
 * The **sequence** representation is also simple to create and store and it contains minimal structural information as it only keeps the order / position information. Models that use this representation, such as recurrent neural networks, usually have a linear complexity over the size of the input. However this representation suggests to attend words in order and is inconvenient to model long range relationship.
 * The **graph** representation is trickier to create and store, but it contains as much structural information as one wants through all the options offered while constructing the graph. It is convenient to model long range relationship, while being sparser than the bag representation. Graph Neural Networks are a class of models designed to deal with documents using graph representations.
-
 
 Even for textual documents, graph representation come with a lot of advantages. Even though, as of 2022, Bag-Of-Words representation (through the Transformer architecture) is the *de facto* standard in Natural Language Processing tasks, graph representation is receiving a lot of interest from the NLP community: as shown in Wu *et al*'s [survey](https://arxiv.org/abs/2106.06090) on Graph Neural Networks for NLP.
 
 For multi-modal documents, *ie* documents that contain more than one modality (such as text / image / audio), the structural information is richer than in textual documents and cannot always be represented as sequential.
 
-Graphs make a lot of sense for representing such data.
+**Graphs make a lot of sense for representing such data.**
 
-As an example, we will try to represent a videoconference record as a graph.
+To illustrate this, we will construct a simple graph representation of a videoconference record, by taking advantage of the structure of the data.
 
-We will assume that the records consist of a shared screen video stream and an audio stream, that are being preprocessed so that we have:
+We will assume that the records consist of a shared-screen video stream and an audio stream, that are being preprocessed so that we have:
 * the slides as images and the time frames for which they appear on screen
 * the textual transcript of the audio, with the time frames for which each sentence is being said
 
-With this information, we can construct this graph:
+With only this information, we can construct this graph:
 
 ![](https://i.ibb.co/1JY0Q3X/graph-mm.png)
 
 Nodes are of 3 types:
-* `slide nodes` that are the still images from the screenshare stream
+* `slide nodes` that are the still images from the screen-share stream
 * `word nodes` that are the words from the transcript
 * `sentence nodes` that are the sentences from the transcript
 
@@ -94,7 +88,7 @@ Node (respectively edge) types are encoded in the node (resp. edge) features
 
 This representation contains more structural information than a multimodal bag of tokens for instance while being sparser.
 
-Typically, a videoconference record is ~1 hour long, and, when tokenized, vastly exceeds the size limit of Transformer models, even for variants designed for longer inputs: the limit is `4096` tokens for the [BigBird](https://arxiv.org/abs/2007.14062) model, and `2048` tokens for the [Perceiver](https://arxiv.org/abs/2103.03206) model. A videoconference record typically contains $>3000$ words and $>30$ slides, which translate to more than $3000$ textual tokens and roughly $16 * 16 * 30 = 7680$ visual tokens (with 16\*16 patches per image as in `ViT`).
+Typically, a videoconference record is ~1 hour long, and, when tokenized, vastly exceeds the size limit of Transformer models. There are Transformer variants that are designed specifically for longer inputs: the input size limit is `4096` tokens for the [BigBird](https://arxiv.org/abs/2007.14062) model, and `2048` tokens for the [Perceiver](https://arxiv.org/abs/2103.03206) model. A videoconference record typically contains $>3000$ words and $>30$ slides, which translate to more than $3000$ textual tokens and roughly $16 * 16 * 30 = 7680$ visual tokens (with 16\*16 patches per image as in `ViT`).
 
 In order to use a bag representation with a Transformer model on this kind of data, one should for instance use sliding windows over the input to feed the maximum token size, but the model would be losing one of its best features: the long range attention.
 
