@@ -104,7 +104,7 @@ Arguably, the model can be seen as the same, but with different capabilities dep
 
 #### Example in favor of a sparser representation than the bag of tokens
 
-Typically, a videoconference record is ~$40$ minutes long, the transcript is $~337$ sentences long, or ~$4600$ words long and there are ~$46$ slides. These values were computed on average from records from the [German National Library of Science and Technology's archive](https://av.tib.eu/).
+Typically, a videoconference record is ~$40$ minutes long, the transcript is $~337$ sentences long, or ~$4,600$ words long and there are ~$46$ slides. These values were computed on average from records from the [German National Library of Science and Technology's archive](https://av.tib.eu/).
 
 Textual input are usually tokenized using for instance a WordPiece tokenizer (such as in [BERT](https://towardsdatascience.com/how-to-build-a-wordpiece-tokenizer-for-bert-f505d97dddbb)) or a Byte-Pair Encoding (BPE) (such as in [GPT](https://huggingface.co/docs/transformers/model_doc/gpt2#transformers.GPT2Tokenizer)). More information about tokenizers can be found in the [Hugging Face's `transformers` documentation](https://huggingface.co/docs/transformers/tokenizer_summary).
 
@@ -114,9 +114,9 @@ $$1 \text{ token} \approx \frac{3}{4} \text{ words}$$
 
 Transformer models usually come with a size limit of a few hundred tokens, `512` tokens for BERT for instance. There are Transformer variants that are designed specifically for longer inputs: the input size limit is `4096` tokens for the [BigBird](https://arxiv.org/abs/2007.14062) model, and `2048` tokens for the [Perceiver](https://arxiv.org/abs/2103.03206) model.
 
-For our average videoconference record, the transcript alone is estimated to be $4 600 * \frac{4}{3} \approx 6133 $ tokens long, which already exceeds all the current transformers' token limits. 
+For our average videoconference record, the transcript alone is estimated to be $4,600 * \frac{4}{3} \approx 6,133 $ tokens long, which already exceeds all the current transformers' token limits. 
 
-To this we could add the visual tokens that can go up to roughly $16 * 16 * 46 = 11 776$ visual tokens (with 16\*16 patches per image as in `ViT`). However for simplicity we will assume that each slide is encoded as a single token.
+To this we could add the visual tokens that can go up to roughly $16 * 16 * 46 = 11,776$ visual tokens (with 16\*16 patches per image as in `ViT`). However for simplicity we will assume that each slide is encoded as a single token.
 
 In order to use a bag representation with a Transformer model on this kind of data, one should for instance use sliding windows over the input to feed the maximum token size, but the model would be losing one of its best features: the long range attention.
 
@@ -133,7 +133,7 @@ The sequence representation is not suited for long range dependency modelisation
 
 For the computations, we will use an example record. The video is [Firebird: The High Performance RDMS](https://av.tib.eu/media/54686), which is a record from a presentation of Patrick Fitzgerald during openSUSE Virtual Conference 2021. We extracted the transcript using OpenAI's [whisper-medium](https://huggingface.co/openai/whisper-medium) model, and the keyframes using a custom algorithm that compares the [perceptual hashes](https://github.com/JohannesBuchner/imagehash) of consecutive frames to detect the change of slides.
 
-The records lasts `36:18`, from which we extracted $483$ sentences, $5355$ words and $47$ slides.
+The records lasts `36:18`, from which we extracted $483$ sentences, $5,355$ words and $47$ slides.
 
 ##### Nodes: 
 The $47$ slides amount to $47$ visual tokens, with the assomption that each slide is encoded as one token (*ie* one node).
@@ -187,7 +187,7 @@ In short:
 | Long range dependency modelisation | No            | Yes (over sentences and slides)             | Yes |
 | Number of nodes / tokens, $n$      | $5,837$          | $5,885$                                       | $5,837$                 |
 | Number of edges $e$                | $5,836$          | $257,100$                                     | $34,070,569$            |
-| Complexity (compared to sequence)  | $1$              | $\approx{*44}$                                | $\approx{*5838}$         |
+| Complexity (compared to sequence)  | $1$              | $\approx{*44}$                                | $\approx{*5,838}$         |
 | Complexity (in term of document size)          | Linear: $O(n)$ | $n = s + w + v$, $O(w + (s + v)^2)$ | Quadratic: $O(n^2)$   |
 
 The proposed graph allows computations for $\approx 0.75\%$ of the bag of tokens computations.
