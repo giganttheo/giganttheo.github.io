@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Multi-Modal Graphs: modeling complex structures"
+title: "Multimodal Graphs: modeling complex structures"
 author: Théo Gigant
 use_math: true
 category: multimodal graph
@@ -42,7 +42,7 @@ For instance in the [`jraph`](https://github.com/deepmind/jraph) library, a grap
 * `n_edge`: number of edges
 * `globals`: global feature (*eg* graph label)
 
-Graphs are a structure that conveniently model complex systems, such as multi-modal documents.
+Graphs are a structure that conveniently model complex systems, such as multimodal documents.
 
 As an example, in *Extractive Text-Image Summarization with Relation-Enhanced Graph Attention Network*, Xie *et al* construct this graph to model an article that contains texts and images:
 
@@ -61,10 +61,18 @@ The graph representation is the most general, and the most powerful, as sequence
 * The **sequence** representation is also simple to create and store and it contains minimal structural information as it only keeps the order / position information. Models that use this representation, such as recurrent neural networks, usually have a linear complexity over the size of the input. However this representation suggests to attend words in order and is inconvenient to model long range relationship.
 * The **graph** representation is trickier to create and store, but it contains as much structural information as one wants through all the options offered while constructing the graph. It is convenient to model long range relationship, while being sparser than the bag representation. Graph Neural Networks are a class of models designed to deal with documents using graph representations.
 
-Even for textual documents, graph representation come with a lot of advantages. As of 2022, Bag-Of-Words representation (through the Transformer architecture) is the *de facto* standard in Natural Language Processing tasks.
+Even for textual documents, graph representation come with a lot of advantages. As of 2022, bag of words representation (through the Transformer architecture) is the *de facto* standard in Natural Language Processing tasks.
 Graph representation though is starting to receive a lot of interest from the NLP community: as shown in Wu *et al*'s [survey](https://arxiv.org/abs/2106.06090) on Graph Neural Networks for NLP.
 
-For multi-modal documents, *ie* documents that contain more than one modality (such as text / image / audio), the structural information is richer than in textual documents and cannot always be represented as sequential.
+For multimodal documents, *ie* documents that contain more than one modality (such as text / image / audio), the structural information is richer than in textual documents and cannot always be represented as sequential.
+
+A text document is made of words, but it's usual in Natural Language Processing to split those words into `tokens` that are semantic units that will be processed by the model.
+
+In a similar fashion, each modality of a multimodal document is split into semantic units before being fed to the model. It can be pixels / patches for a visual modality, and slices of raw audio for an audio modality, for instance.
+
+We will call "***multimodal tokens***" all of the multimodal documents' semantic units.
+
+As a consequence, we will refer to the "bag" representation as "bag of tokens".
 
 #### Graphs make a lot of sense for representing such data
 
