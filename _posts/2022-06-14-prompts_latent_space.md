@@ -18,14 +18,13 @@ On the [model card](https://huggingface.co/ykilcher/gpt-4chan) for his *controve
 
 **Language Models speak a Language of their own** which was engineered to be as human-like as possible, yet some flaws remain.
 
-Those reasons are why **everyone** who wants to use these models should acquire some knowledge about machine learning.
+Those reasons are why **everyone** who wants to use these models might benefit from acquiring some knowledge about machine learning.
 
 ---
 
 ![](https://i.imgur.com/J5eXpjm.jpg)
 
 ## The importance of phrasing
-
 
 
 If you follow the news about language models, you may have encountered this table:
@@ -84,7 +83,7 @@ If you have read a little bit about prompt engineering for text to image models,
 
 Arguably, the two latter prompts (4 & 5) don't give results as good nor as close to the prompts as the two that came before (2 & 3).
 
-This may be because these descriptions don't match the images that this model was trained to generate.
+This may be because these descriptions do not match the images that this model was trained to generate.
 
 This is what is called distribution shift (or domain shift) between training and inference.
 
@@ -96,7 +95,7 @@ The model was trained on specific data, and if the data seen during inference is
 
 If your model has **only** seen English words during training, it will not magically become fluent in French during inference.
 
-Now that we have seen this, we have the intuition of what the choice of prompts really is: a way to guide the model to do what we want by talking to him in a language it understands.
+Now that we have seen this, we have the intuition of what the choice of prompt really is: a way to guide the model to do what we want by talking to it in a language it understands.
 
 But to do this, we need to understand what the model's language is. Better still, what the dataset domain looks like. 
 
@@ -106,9 +105,9 @@ But to do this, we need to understand what the model's language is. Better still
 
 *Illustration: Diagram of T5's text-to-text framework. Every task considered uses text as input to the model, which is trained to generate some target text. This allows to use the same model, loss function, and hyperparameters across a diverse set of tasks including translation (green), linguistic acceptability (red), sentence similarity (yellow), and document summarization (blue).*
 
-The idea behind finding a good prompt is to find templates that are specific and trigger the outputs we want for a model. For instance for [T5](https://arxiv.org/abs/1910.10683), the template `"translate English to German: {text}"` let the model knows that we want it to translate the following text to German. In the case of T5 it was engineered this way in the training dataset. But in most case, it might just come from specific phrasing that were not intentionnaly put in the dataset.
+The idea behind finding a good prompt is to find templates that are specific and trigger the outputs we want for a model. For instance for [T5](https://arxiv.org/abs/1910.10683), the template `"translate English to German: {text}"` lets the model know that we want it to translate the following text to German. In the case of T5 it was engineered this way in the training dataset. But in most case, it might just come from specific phrasing that were not intentionnaly put in the dataset.
 
-For example you can trigger a model trained on reddit (such as GPT-2) to do summarization by prompting `"{text} TL;DR"`. This time, this specific phrasing was just found to appear a lot in the training data. In Reddit posts, the keyword "*TL;DR*" (Too Long; Didn't Read) is usually followed with a short bullet points summary of the text before. Via training on this data, a language model reproduces this behaviour.
+For example you can trigger a model trained on reddit (such as GPT-2) to do summarization by prompting `"{text} TL;DR"`. This time, this specific phrasing was just found to appear a lot in the training data. In Reddit posts, the keyword "*TL;DR*" (Too Long; Didn't Read) is usually followed with a short bullet points summary of the text before. After training on this data, a language model reproduces this behaviour.
 
 ---
 
@@ -148,9 +147,9 @@ This idea that the way you phrase your query will have a great influence on the 
 
 [Socratic Models](https://socraticmodels.github.io/) suggests a framework to compose models trained on different domains (*eg*: modalities) in a zero-shot fashion to capture new multimodal capabilities.
 
-In other words, it is a way to connect models together via well-chosen prompts allowing to create a *super-model* which can excel at various multimodal tasks without the need of fine-tuning.
+In other words, it is a way to connect models together via well-chosen prompts allowing to create a *super-model* which can excel at various multimodal tasks without the need for fine-tuning.
 
-![](https://s8.gifyu.com/images/robots_demo.gif)
+![](https://socraticmodels.github.io/images/ego-perception.png)
 
 ## The Model's Language
 
@@ -158,9 +157,9 @@ In other words, it is a way to connect models together via well-chosen prompts a
 
 ![](https://i.imgur.com/BSLxlJV.png)
 
-Sometimes, some *weird* prompts might offer very good results. It might be hexadecimal colors that allows to have more control over the results, some magical pieces of texts like `trending on artstation`, `unreal engine` that drastically improve the quality of the images. Or even some *weirder* words, that doesn't appear to align with any *known* human language.
+Sometimes, some *weird* prompts might offer very good results. It might be hexadecimal colors that allows to have more control over the results, some magical pieces of texts like `trending on artstation`, `unreal engine` that drastically improve the quality of the images. Or even some *weirder* words, that don't appear to align with any *known* human language.
 
-The text-to-image synthesis model *DALLE-2* was found to have develop such a *hidden* vocabulary.
+The text-to-image synthesis model *DALLE-2* was found to have developped such a *hidden* vocabulary.
 
 ![](https://i.imgur.com/CY4Oq4p.png)
 
@@ -179,13 +178,13 @@ images with absurd prompts. For example, it seems that `Apoploe vesrreaitais` me
 and `Contarra ccetnxniams luryca tanniounons` (sometimes) means bugs or pests. We find
 that these prompts are often consistent in isolation but also sometimes in combinations.
 
-Sometimes, those *weird* prompts come from biases in the dataset. That is the case of the `trending on artstation`, `unreal engine` keywords, that are consequences of the image/text pairs datasets that where often automatically annotated. In these datasets, captions containing those keywords are often paired with higher quality images.
+Sometimes, those *weird* prompts come from biases in the dataset. That is the case of the `trending on artstation`, `unreal engine` keywords, that are consequences of the image/text pairs datasets that were often automatically annotated. In these datasets, captions containing those keywords are often paired with higher quality images.
 
 In the case of the hidden vocabulary of DALLE-2, unknown words consistently refers to some specific objects. The cause is thought to be random bias in CLIP that encodes these words in a similar way as the object it refers to (The CLIP encoding for `Apoploe vesrreaitais` is close to the one for birds).
 
 There also are some discussions about [interesting experiments](https://huggingface.co/spaces/dalle-mini/dalle-mini/discussions/158) of the same type for Boris Dayma's DALL-E mini.
 
-For a more comprehensive study on prompt engineering for text-to-image synthesis, make sure to take a look at [A Traveler’s Guide to the Latent Space](https://sweet-hall-e72.notion.site/A-Traveler-s-Guide-to-the-Latent-Space-85efba7e5e6a40e5bd3cae980f30235f). In this article, Ethan Smith describes lots of techniques to take the most out of [Disco Diffusion](http://discodiffusion.com/), a popular set of tools to create art using AI. Another in-depth guide to prompt engineering for DALLE-2 2 is dall-ery gall-ery's [DALL·E 2 Prompt Book](https://dallery.gallery/the-dalle-2-prompt-book/)
+For a more comprehensive study on prompt engineering for text-to-image synthesis, make sure to take a look at [A Traveler’s Guide to the Latent Space](https://sweet-hall-e72.notion.site/A-Traveler-s-Guide-to-the-Latent-Space-85efba7e5e6a40e5bd3cae980f30235f). In this article, Ethan Smith describes lots of techniques to take the most out of [Disco Diffusion](http://discodiffusion.com/), a popular set of tools to create art using AI. Another in-depth guide to prompt engineering for DALLE-2 is dall-ery gall-ery's [DALL·E 2 Prompt Book](https://dallery.gallery/the-dalle-2-prompt-book/)
 
 ### Latent Space
 
