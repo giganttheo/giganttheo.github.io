@@ -81,7 +81,7 @@ This idea weighs in favor of pre-processing the images first, *eg* by using an i
 
 However, are we sure to know how finer-grained vision is, compared to text? And do all text tokens have the same granularity?
 
-One might argue that some words with lots of different meanings depending on the context have a different granularity compared to *stop-words* for instance. An example that one might interpret in this direction is the recent work by [*Raposo et al*](https://arxiv.org/abs/2404.02258) showing that all tokens don't need the same model depth.
+One might argue that some words with lots of different meanings depending on the context have a different granularity compared to *stop-words* for instance. An example that one might interpret in this direction is the recent Mixture-of-Depths work by [*Raposo et al*](https://arxiv.org/abs/2404.02258) showing that all tokens don't need the same model depth.
 
 All visual tokens are not as fine-grained as well, with the example of documents vs real-world pictures.
 
