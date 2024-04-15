@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Design choices for Vision Language Models in 2024"
+title: "Design choices for Vision-Language Models in 2024"
 author: Théo Gigant
 use_math: true
 category: multimodal nlp
@@ -13,7 +13,7 @@ Vision and language models are the new shiny thing in the *AI* space, delivering
 
 [Some](https://palm-e.github.io/) are big, [some](https://huggingface.co/openbmb/MiniCPM-V-2) are small, [some](https://arxiv.org/abs/2404.04346) are very complex machinery, [some](https://www.adept.ai/blog/fuyu-8b) are as simple as it gets, [some](https://llava-vl.github.io/) can only process one image, [some](https://arxiv.org/abs/2402.08268) whole hour-long videos, [others](https://arxiv.org/abs/2401.10208) can also generate images.
 
-One thing we can learn from all these different models is the choices that were made and the results they yield. Especially, in this blog post we will focus on the automatic understanding of vision and language by describing some of the popular designs that were studied in the recent developments of Vision-Language Models. For a more hands-on blog post on vision language models, please check [Merve Noyan and Edward Beeching's blog post on HuggingFace](https://huggingface.co/blog/vlms).
+One thing we can learn from all these different models is the choices that were made and the results they yield. Especially, in this blog post we will focus on the automatic understanding of vision and language by describing some of the popular designs that were studied in the recent developments of Vision-Language Models. For a more hands-on blog post on vision-language models, please check [Merve Noyan and Edward Beeching's blog post on HuggingFace](https://huggingface.co/blog/vlms).
 
 ## Vision and language in a shared latent space
 
@@ -42,11 +42,11 @@ When using the image encoder from CLIP, the images are mostly pre-aligned with t
 
 The authors call this mapping the "projection", and it is trained on image/caption pairs while keeping the vision and language models frozen. This projection and the language model are tuned during "visual instruction tuning", a second, more expensive, training stage aimed at teaching the model to follow instructions on visual tasks.
 
-In the first LLaVA, this abstractor was as simple linear projection. In consequent versions (LLaVA 1.5 and 1.6/NeXT), it was swapped for a more expressive Multi-Layer Perceptron (MLP).
+In the first LLaVA, this abstractor was a simple linear projection. In consequent versions (LLaVA 1.5 and 1.6/NeXT), it was swapped for a more expressive Multi-Layer Perceptron (MLP).
 
 While minimalistic and effective, this "projection" strategy has the default of keeping the number of tokens from the encoded image, *ie* $16*16=256$ tokens with ViT. For some applications --say video understanding-- the total number of tokens might blow up, and be very redundant too. In such situations, a "Visual Abstractor" can select the information from a varying number of images with a fixed tokens budget, with popular choices being the Q-Former ([BLIP-2](https://arxiv.org/abs/2301.12597)) or the Perceiver Resampler ([Flamingo](https://arxiv.org/abs/2204.14198)) abstractors. Both are using learnt queries and attention to select the salient visual information for a given token budget, but Q-Former is also conditioned on input text.
 
-[*Cha et al*](https://arxiv.org/abs/2312.06742) studied other visual abstractor strategies more in-depth, based on convolution neural networks (C-Abstractor), or deformable attentions (D-Abstractor), along adaptive average pooling which allows to select the number of output tokens.
+[*Cha et al*](https://arxiv.org/abs/2312.06742) studied other visual abstractor strategies more in-depth, based on convolutional neural networks (C-Abstractor), or deformable attentions (D-Abstractor), along adaptive average pooling which allows to select the number of output tokens.
 
 [*Li et al*](https://arxiv.org/abs/2311.17043) proposed to only keep two tokens for each frame for video understanding: one that only encode the frame information (dubbed "content" token), and another one, conditioned on input text, aiming to encode the contextualized information (dubbed "context" token).
 
@@ -58,7 +58,7 @@ Depending on the choice, images can be seen as an additional information which c
 
 ## Are images a foreign language?
 
-As shown empirically by the [ViT](https://arxiv.org/abs/2010.11929) model, images can be processed with the same architecture as text, with state-of-the-art performance. The image is split into patches, that are embedded and processed by a language model as if they were text tokens. Effectively, an image becomes a foreign language, and *Wang et al* tested it quite litteraly. Their [BeiT 3](https://arxiv.org/abs/2208.10442) model follows the ViT architecture with a multimodal twist, as the model is trained from scratch with image and text tokens processed in the same model but with different experts.
+As shown empirically by [*Dosovitskiy et al*](https://arxiv.org/abs/2010.11929) with their ViT model, images can be processed with the same architecture as text, with state-of-the-art performance. The image is split into patches, that are embedded and processed by a language model as if they were text tokens. Effectively, an image becomes a foreign language, and *Wang et al* tested it quite litteraly. Their [BeiT 3](https://arxiv.org/abs/2208.10442) model follows the ViT architecture with a multimodal twist, as the model is trained from scratch with image and text tokens processed in the same model but with different experts.
 
 Halfway between aligning pretrained models and training a model with all modalities, falls Adept's [Fuyu](https://www.adept.ai/blog/fuyu-8b) framework. They simplified both the architecture and training procedure by feeding the image patch embeddings as is to a language model. With that framework, there is no need to think about how to scale the vision encoder vs the language model, or what training stages to do and in what order, and the model is able to work with images of varying resolutions. This last particularity was then improved upon by [*Li et al*](https://arxiv.org/abs/2311.04219) in their OtterHD model.
 
@@ -77,7 +77,7 @@ The paper reads:
 
 > This strategy is based on the observation that the visual and audio spaces are fine-grained (there are many visual or sounds of guitars that might be really different to each other) while the textual domain is more coarse as its goal is to abstract away details (e.g. a single “guitar” word).
 
-This idea weighs in favor of pre-processing the images first, *eg* by using an image encoder before feeding the resulting embeddings to the Language Model.
+This idea weighs in favor of pre-processing the images first, *eg* by using an image encoder before feeding the resulting embeddings to the language model.
 
 However, are we sure to know how finer-grained vision is, compared to text? And do all text tokens have the same granularity?
 
