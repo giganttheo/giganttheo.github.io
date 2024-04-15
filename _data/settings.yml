@@ -15,7 +15,7 @@ social:
 - {icon: 'twitter', link:    'https://twitter.com/gigant_theo'}
 - {icon: 'linkedin', link:    'https://www.linkedin.com/in/theo-gigant/'}
 - {icon: 'github', link: 'https://github.com/giganttheo'}
-- {icon: 'envelope', link:   'mailto:contact@theogigant.fr'}
+- {icon: 'envelope', link:   'mailto:theo.gigant@l2s.centralesupelec.fr'}
 
 hf:
 - {name: '🤗',      link: 'https://huggingface.co/gigant'}
