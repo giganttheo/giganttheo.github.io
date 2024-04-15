@@ -9,7 +9,9 @@ image: holzer.jpg
 
 *Illustration: Truisms (Jenny Holzer, 1977–79)*
 
-Vision and language models are the new shiny thing in the *AI* space, delivering mind-blowing results at a *very* fast pace. [Some](https://palm-e.github.io/) are big, [some](https://huggingface.co/openbmb/MiniCPM-V-2) are small, [some](https://arxiv.org/abs/2404.04346) are very complex machinery, [some](https://www.adept.ai/blog/fuyu-8b) are as simple as it gets, [some](https://llava-vl.github.io/) can only process one image, [some](https://arxiv.org/abs/2402.08268) whole hour-long videos, [others](https://arxiv.org/abs/2401.10208) can also generate images.
+Vision and language models are the new shiny thing in the *AI* space, delivering mind-blowing results at a *very* fast pace.
+
+[Some](https://palm-e.github.io/) are big, [some](https://huggingface.co/openbmb/MiniCPM-V-2) are small, [some](https://arxiv.org/abs/2404.04346) are very complex machinery, [some](https://www.adept.ai/blog/fuyu-8b) are as simple as it gets, [some](https://llava-vl.github.io/) can only process one image, [some](https://arxiv.org/abs/2402.08268) whole hour-long videos, [others](https://arxiv.org/abs/2401.10208) can also generate images.
 
 One thing we can learn from all these different models is the choices that were made and the results they yield. Especially, in this blog post we will focus on the automatic understanding of vision and language by describing some of the popular designs that were studied in the recent developments of Vision-Language Models. For a more hands-on blog post on vision language models, please check [Merve Noyan and Edward Beeching's blog post on HuggingFace](https://huggingface.co/blog/vlms).
 
@@ -21,7 +23,7 @@ One thing we can learn from all these different models is the choices that were 
 
 *Illustration: CLIP contrastive pre-training ([OpenAI Blog](https://openai.com/research/clip))*
 
-It is a building block of most recent multimodal vision-language models: *eg* the text encoder in text-conditioned image generation such as all the [Stable Diffusion models](https://stability.ai/stable-image), or the image encoder in language and vision chatbots such as [LLaVA](https://llava-vl.github.io/).
+It is a building block of most recent multimodal vision-language models, *eg* the text encoder in text-conditioned image generation such as all the [Stable Diffusion models](https://stability.ai/stable-image), or the image encoder in language and vision chatbots such as [LLaVA](https://llava-vl.github.io/).
 
 In the frameworks that aim at understanding language and vision, the ViT image encoder from CLIP (or newer CLIP-inspired techniques such as [SigLIP](https://arxiv.org/abs/2303.15343)) is often used as the vision backbone.
 
@@ -29,7 +31,7 @@ A key advantage is that the latent tokens representations in CLIP's ViT might ha
 
 *"Mostly"*, because the latent representation of the image is aligned to the latent representation of the text, that went through the tokenizer and the transformer-encoder, while in most scenarios the encoded image is fed to a language model along freshly-embedded text tokens.
 
-In order to re-align visual tokens with the text tokens, and, optionnaly, compress, focus or select the visual information that will be forwarded to the language model, the encoded image tokens are processed by a "Visual Abstractor" model.
+In order to re-align visual tokens with the text tokens, and, optionally, compress, focus or select the visual information that will be forwarded to the language model, the encoded image tokens are processed by a "Visual Abstractor" model.
 
 ## Leveraging and aligning pretrained models with a "Visual Abstractor"
 
@@ -38,7 +40,7 @@ When using the image encoder from CLIP, the images are mostly pre-aligned with t
 ![](https://llava-vl.github.io/images/llava_arch.png)
 *Illustration: LLaVA architecture ([LLaVA Blog](https://llava-vl.github.io/))*
 
-They call this mapping the "projection", and it is trained on image/caption pairs while keeping the vision and language models frozen. This projection and the language model are tuned during "visual instruction tuning", a second, more expensive, training stage aimed at teaching the model to follow instructions on visual tasks.
+The authors call this mapping the "projection", and it is trained on image/caption pairs while keeping the vision and language models frozen. This projection and the language model are tuned during "visual instruction tuning", a second, more expensive, training stage aimed at teaching the model to follow instructions on visual tasks.
 
 In the first LLaVA, this abstractor was as simple linear projection. In consequent versions (LLaVA 1.5 and 1.6/NeXT), it was swapped for a more expressive Multi-Layer Perceptron (MLP).
 
@@ -79,7 +81,7 @@ This idea weighs in favor of pre-processing the images first, *eg* by using an i
 
 However, are we sure to know how finer-grained vision is, compared to text? And do all text tokens have the same granularity?
 
-One might argue that some words with lots of different meanings depending on the context have a different granularity compared to *stop-words* for instance. From my understanding, an example that might be interpreted in this direction, is the recent work by [*Raposo et al*](https://arxiv.org/abs/2404.02258) showing that all tokens don't need the same model depth.
+One might argue that some words with lots of different meanings depending on the context have a different granularity compared to *stop-words* for instance. An example that one might interpret in this direction is the recent work by [*Raposo et al*](https://arxiv.org/abs/2404.02258) showing that all tokens don't need the same model depth.
 
 All visual tokens are not as fine-grained as well, with the example of documents vs real-world pictures.
 
@@ -131,7 +133,7 @@ An important decision is the pretrained models we are basing our vision-language
 We didn't really talk about the base language model, but their context-size, and linguistic capabilities (*[what languages can it process?](https://arxiv.org/abs/2403.11399) is it able to read and write code?*) are essential in the downstream performances.
 Similarly, if there is a pretrained vision encoder, its image resolutions compatibilies can be [a problem in some tasks](https://huggingface.co/blog/visheratin/vlm-resolution-curse), and the domain it was trained on (photographs, documents?), are key attributes to take into account.
 
-The design choices of the whole vision-language model architecture also need to be done by taking into account the downstream use case.
+The design choices of the whole vision-language model architecture also need to be done bearing in mind the downstream use case.
 
 In video understanding tasks, using a projection alignment strategy can lead to a huge number of input tokens with a lot of redundancy. On a limited context length budget, resampling ([text-conditioned](https://arxiv.org/abs/2312.11897v2) or [not](https://huggingface.co/openbmb/MiniCPM-V)) might be a cost-effective way to focus on the more salient information in the visual inputs.
 
@@ -139,12 +141,14 @@ For tasks that require to focus on fine details in the input images, it could be
 
 When it comes to training the resulting model, the choice of the datasets used is also a huge deal, it will shape the performance on some tasks such as [OCR-free document understanding](https://llava-vl.github.io/blog/2024-01-30-llava-next/) or [understanding of visual prompts](https://arxiv.org/abs/2312.00784).
 
-I deliberately did not include any benchmark metrics in this blog post. They might be useful for making your choices, but at the moment [extensive experiments on vision-language models design choices](https://arxiv.org/abs/2403.09611) are rare and biased towards image captioning tasks.
+### What about benchmarks?
+
+Benchmarks might be useful for making your choices, but at the moment [extensive experiments on vision-language models design choices](https://arxiv.org/abs/2403.09611) are rare and biased towards image captioning tasks.
 > due to the nature of common evaluation being heavily tailored to captioning problems (3 out of the 8 benchmarks are captioning), captioning data notably lifts zero-shot performance
 
 (Extract from *MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training*)
 
-Models benchmark results are also not really insightful to compare vision-language model designs because they are based on different language models and vision encoder with varying perfomances, and trained with very different amount of compute and data.
+Models benchmark results are also not very insightful to compare vision-language model designs because they are based on different language models and vision encoders with varying performances, and trained with very different amount of compute and data.
 
 This being said, here are some ways to compare available vision-language models on some benchmarks:
 
@@ -154,6 +158,6 @@ This being said, here are some ways to compare available vision-language models 
 
 ## Where are Vision-Language Models headed?
 
-Obviously, we cannot know for sure. But there is something that we can take from [the bitter lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html): all these tricks to cleverly leverage and align pretrained models of different modalities, and to filter and focus the visual content for a given token budget, are temporary solutions. At some point, we might have models trained end-to-end to figure everything by themselves based on statistics of more-and-more massive datasets. *eg* [Fuyu](https://www.adept.ai/blog/fuyu-8b)-[MoD](https://arxiv.org/abs/2404.02258)-style with infinite-context.
+Obviously, no one can know for sure. But there is something that we can take from [the bitter lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html): all these tricks to cleverly leverage and align pretrained models of different modalities, and to filter and focus the visual content for a given token budget, are temporary solutions. At some point, we might have models trained end-to-end to figure everything by themselves based on statistics of more-and-more massive datasets. *eg* [Fuyu](https://www.adept.ai/blog/fuyu-8b)-[MoD](https://arxiv.org/abs/2404.02258)-style with infinite-context.
 
 For the time being, we better be thoughtful and deliberate in our choices, in order to design useful vision-language models for different tasks with limited training budgets and computations.
