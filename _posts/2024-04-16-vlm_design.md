@@ -107,17 +107,18 @@ To summarize the vision-language model designs we discussed so far:
 ---
 
 #### Multimodal fusion strategies:
-* **Interleaved vision and language tokens**: process the vision embeddings as if they were a foreign language (*eg* LLaVA)
+* **Interleaved vision and language tokens**: process the vision embeddings as if they were text embeddings (*eg* LLaVA)
 * **Modality experts**: language and vision embeddings are processed by different experts in the language model (*eg* BeiT 3)
-* **Cross attention**: language tokens can attend to image embeddings using cross-attention in-between transformer blocks (*eg* Flamingo)
+* **Cross attention**: language tokens can attend to image embeddings using cross-attention in-between transformer blocks, introduce lots of new parameters (*eg* Flamingo). This strategy was mostly dismissed in recent vision-language models developments, likely because it introduces a lot of new parameters.
 
 ---
 
 And some examples of Open Source Vision-Language Models (as found in [this blog post](https://huggingface.co/blog/vlms)) and the choices they made:
 
 |**Model name**|**Vision encoding strategy**|**Vision-language alignment strategy**|**Multimodal fusion strategy**|
+| --- | --- | --- | --- |
 |LLaVA-NeXT ([`llava-v1.6-vicuna-7b`](https://huggingface.co/liuhaotian/llava-v1.6-vicuna-7b))|Pretrained vision encoder ([`clip-vit-large-patch14-336`](https://huggingface.co/openai/clip-vit-large-patch14-336))|Projection (MLP)|Interleaved vision and language tokens|
-|DeepSeek-VL ([`deepseek-vl-7b-base`](https://huggingface.co/deepseek-ai/deepseek-vl-7b-base))|Pretrained vision encoder ([`ViT-SO400M-14-SigLIP-384`](timm/ViT-SO400M-14-SigLIP-384))|Projection (hybrid MLP)|Interleaved vision and language tokens|
+|DeepSeek-VL ([`deepseek-vl-7b-base`](https://huggingface.co/deepseek-ai/deepseek-vl-7b-base))|Two pretrained vision encoders ([`ViT-SO400M-14-SigLIP-384`](timm/ViT-SO400M-14-SigLIP-384) and [`sam-vit-base`](https://huggingface.co/facebook/sam-vit-base))|Projection (MLP)|Interleaved vision and language tokens|
 |moondream2 ([`moondream2`](https://huggingface.co/vikhyatk/moondream2))|Pretrained vision encoder ([`ViT-SO400M-14-SigLIP-384`](timm/ViT-SO400M-14-SigLIP-384))|Projection (MLP)|Interleaved vision and language tokens|
 |CogVLM ([`cogvlm-base-490-hf`](https://huggingface.co/THUDM/cogvlm-base-490-hf))|Pretrained vision encoder ([`EVA02_CLIP_E`](https://huggingface.co/QuanSun/EVA-CLIP/blob/main/EVA02_CLIP_E_psz14_s4B.pt))|Projection (MLP)|Modality experts|
 |Fuyu-8B ([`fuyu-8b`](https://huggingface.co/adept/fuyu-8b))|Raw image patches|Projection (Linear)|Interleaved vision and language tokens|
