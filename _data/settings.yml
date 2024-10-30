@@ -8,7 +8,7 @@ google-ID: ''
 
 menu:
 - {name: 'Blog',       url: ''}
-- {name: 'Resume',      url: 'assets/CV_GIGANT_2022.pdf'}
+- {name: 'Resume',      url: 'assets/CV_GIGANT_2024.pdf'}
 - {name: 'About',      url: 'about'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
