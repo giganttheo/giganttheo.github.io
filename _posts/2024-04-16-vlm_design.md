@@ -29,13 +29,13 @@ In the frameworks that aim at understanding language and vision, the ViT image e
 
 A key advantage is that the latent tokens representations in CLIP's ViT might have some sort of a [cross-modal](https://arxiv.org/abs/2403.09037) / *[synaesthetic](https://arxiv.org/abs/2306.03678)* ability, by already being *mostly* aligned with their captions.
 
-*"Mostly"*, because the latent representation of the image is aligned to the latent representation of the text, that went through the tokenizer and the transformer-encoder, while in most scenarios the encoded image is fed to a language model along freshly-embedded text tokens.
+*"Mostly"*, because the latent representation of the image is aligned to the latent representation of the text, that went through the tokenizer and the transformer-encoder, while in most scenarios the encoded image is fed to a language model among freshly-embedded text tokens.
 
 In order to re-align visual tokens with the text tokens, and, optionally, compress, focus or select the visual information that will be forwarded to the language model, the encoded image tokens are processed by a "Visual Abstractor" model.
 
 ## Leveraging and aligning pretrained models with a "Visual Abstractor"
 
-When using the image encoder from CLIP, the images are mostly pre-aligned with text and we could just map the CLIP latents to the text token embeddings, with a minimalistic projection layer that will be trained on image/caption pairs. This is the idea behing the [LLaVA](https://llava-vl.github.io/) framework.
+When using the image encoder from CLIP, the images are mostly pre-aligned with text and we could just map the CLIP latents to the text token embeddings, with a minimalistic projection layer that will be trained on image/caption pairs. This is the idea behind the [LLaVA](https://llava-vl.github.io/) framework.
 
 ![](https://llava-vl.github.io/images/llava_arch.png)
 *Illustration: LLaVA architecture ([LLaVA Blog](https://llava-vl.github.io/))*
@@ -44,9 +44,9 @@ The authors call this mapping the "projection", and it is trained on image/capti
 
 In the first LLaVA, this abstractor was a simple linear projection. In consequent versions (LLaVA 1.5 and 1.6/NeXT), it was swapped for a more expressive Multi-Layer Perceptron (MLP).
 
-While minimalistic and effective, this "projection" strategy has the default of keeping the number of tokens from the encoded image, *ie* $16*16=256$ tokens with ViT. For some applications --say video understanding-- the total number of tokens might blow up, and be very redundant too. In such situations, a "Visual Abstractor" can select the information from a varying number of images with a fixed tokens budget, with popular choices being the Q-Former ([BLIP-2](https://arxiv.org/abs/2301.12597)) or the Perceiver Resampler ([Flamingo](https://arxiv.org/abs/2204.14198)) abstractors. Both are using learnt queries and attention to select the salient visual information for a given token budget, but Q-Former is also conditioned on input text.
+While minimalistic and effective, this "projection" strategy has the disadvantage of keeping the number of tokens from the encoded image, *ie* $16*16=256$ tokens with ViT. For some applications --say video understanding-- the total number of tokens might blow up, and be very redundant too. In such situations, a "Visual Abstractor" can select the information from a varying number of images with a fixed tokens budget, with popular choices being the Q-Former ([BLIP-2](https://arxiv.org/abs/2301.12597)) or the Perceiver Resampler ([Flamingo](https://arxiv.org/abs/2204.14198)) abstractors. Both are using learnt queries and attention to select the salient visual information for a given token budget, but Q-Former is also conditioned on input text.
 
-[*Cha et al*](https://arxiv.org/abs/2312.06742) studied other visual abstractor strategies more in-depth, based on convolutional neural networks (C-Abstractor), or deformable attentions (D-Abstractor), along adaptive average pooling which allows to select the number of output tokens.
+[*Cha et al*](https://arxiv.org/abs/2312.06742) studied other visual abstractor strategies more in-depth, based on convolutional neural networks (C-Abstractor), or deformable attentions (D-Abstractor), in addition to adaptive average pooling which allows to select the number of output tokens.
 
 [*Li et al*](https://arxiv.org/abs/2311.17043) proposed to only keep two tokens for each frame for video understanding: one that only encode the frame information (dubbed "content" token), and another one, conditioned on input text, aiming to encode the contextualized information (dubbed "context" token).
 
