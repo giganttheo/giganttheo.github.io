@@ -18,7 +18,7 @@ In order to assess the capability of a summarization system, it is essential to 
 
 The standard pipeline involves a bunch of **documents to summarize** (preferably not seen during training) along with human-written **reference summaries**. The evaluation also includes a **reference-based metric** to compare the system-generated summaries against the reference summaries. One widely used metric is the ROUGE score, which computes the lexical overlap between the system-generated summary and the reference summary. The ROUGE score ranges from $0$ if no words are shared, to $1$ if both summaries use exactly the same words.
 
-<img src="{{site.baseurl}}/assets/img/reference-based-pipeline.png" width="500" />
+<img src="{{site.baseurl}}/assets/img/reference-based-pipeline.PNG" width="500" />
 <p style="text-align:center;">Reference-based evaluation pipeline</p>
 
 The method of evaluating summarization systems through reference-based metrics, such as ROUGE, relies on several assumptions that can be readily challenged:
@@ -65,7 +65,7 @@ An easy and compute-cheap method to estimate the *meaningful* words in a documen
 
 We use this method to derive an *importance score* for every word in the document before performing an importance-weighted lexical overlap between the system-generated summary and the document.
 
-<img src="{{site.baseurl}}/assets/img/reference-free-pipeline.png" width="500" />
+<img src="{{site.baseurl}}/assets/img/reference-free-pipeline.PNG" width="500" />
 <p style="text-align:center;">Our reference-free evaluation pipeline</p>
 
 Our [paper](https://aclanthology.org/2024.emnlp-main.1078/) provides a detailed description of the construction of this metric, and shows that it performs on-par with other reference-free metrics such as *LLM-as-a-judge* for relevance evaluation, for a significantly lower computational cost.
