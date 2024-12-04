@@ -75,7 +75,7 @@ Our [paper](https://aclanthology.org/2024.emnlp-main.1078/) provides a detailed 
 The usefulness of an evaluation metric is assessed through a meta-evaluation on various benchmarks. These meta-evaluations consist of documents, human-written reference summaries, and system-generated summaries from a variety of systems. Each system-generated summaries are then graded by human evaluators.
 
 
-A good metric should correlate closely with human ratings of the system-generated summaries. this behavior is quantified by the system-level correlations between the metric and the human evaluations, indicating how well the metric aligns with human judgment.
+A good metric should correlate closely with human ratings of the system-generated summaries. This behavior is quantified by the system-level correlations between the metric and the human evaluations, indicating how well the metric aligns with human judgment.
 
 To assess how the reference quality impacts the system-level correlation with human evaluation, we need to define a method to artifically *decrease* the reference quality. We chose to gradually replace random references with *low quality* ones, using three random sentences from the document.
 
