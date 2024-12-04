@@ -4,7 +4,7 @@ url:              https://giganttheo.github.io
 baseurl:          ''
 
 # jekyll-paginate configuration
-paginate:            5
+paginate:            50
 
 # Build settings
 markdown:            kramdown
@@ -13,8 +13,8 @@ permalink:           /:title
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "Théo Gigant"
-description:	       "PhD student working on multimodal summarization @ L2S"
+title:		           "Gigant's blog"
+description:	       "Théo Gigant, PhD student working on multimodal summarization @ L2S"
 author:              "Théo Gigant"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
