@@ -42,7 +42,7 @@ When using the image encoder from CLIP, the images are mostly pre-aligned with t
 
 The authors call this mapping the "projection", and it is trained on image/caption pairs while keeping the vision and language models frozen. This projection and the language model are tuned during "visual instruction tuning", a second, more expensive, training stage aimed at teaching the model to follow instructions on visual tasks.
 
-In the first LLaVA, this abstractor was a simple linear projection. In consequent versions (LLaVA 1.5 and 1.6/NeXT), it was swapped for a more expressive Multi-Layer Perceptron (MLP).
+In the first LLaVA, this abstractor was a simple linear projection. In subsequent versions (LLaVA 1.5 and 1.6/NeXT), it was swapped for a more expressive Multi-Layer Perceptron (MLP).
 
 While minimalistic and effective, this "projection" strategy has the disadvantage of keeping the number of tokens from the encoded image, *ie* $16*16=256$ tokens with ViT. For some applications --say video understanding-- the total number of tokens might blow up, and be very redundant too. In such situations, a "Visual Abstractor" can select the information from a varying number of images with a fixed tokens budget, with popular choices being the Q-Former ([BLIP-2](https://arxiv.org/abs/2301.12597)) or the Perceiver Resampler ([Flamingo](https://arxiv.org/abs/2204.14198)) abstractors. Both are using learnt queries and attention to select the salient visual information for a given token budget, but Q-Former is also conditioned on input text.
 
