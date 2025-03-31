@@ -6,7 +6,7 @@ permalink: /about
 
 ### About me
 
-I'm Théo Gigant, a PhD student exploring the capabilities of language models and vision-language models to comprehend and summarize multimodal documents such as videoconference records.
+I'm Théo Gigant, a PhD candidate exploring the capabilities of language models and vision-language models to comprehend and summarize multimodal documents such as presentation records.
 
 ### What to Expect from this Blog
 
