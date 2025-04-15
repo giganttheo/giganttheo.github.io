@@ -9,7 +9,7 @@ I am currently conducting research on summarization of multimodal presentations,
 
 ## Publications
 
-* Théo Gigant, Camille Guinaudeau, Frédéric Dufaux. ***Summarization of Multimodal Presentations with Vision-Language Models: Study of the Effect of Modalities and Structure***. Preprint, 2025, [**[PDF]**]()
+* Théo Gigant, Camille Guinaudeau, Frédéric Dufaux. ***Summarization of Multimodal Presentations with Vision-Language Models: Study of the Effect of Modalities and Structure***. Preprint, 2025, [**[PDF]**](https://arxiv.org/abs/2504.10049)
 * Théo Gigant, Camille Guinaudeau, Marc Décombas, Frédéric Dufaux. ***Mitigating the Impact of Reference Quality on Evaluation of Summarization Systems with Reference-Free Metrics***. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, Miami, 2024, [**[PDF]**](https://aclanthology.org/2024.emnlp-main.1078/)
 * Théo Gigant, Frédéric Dufaux, Camille Guinaudeau, Marc Décombas. ***TIB: A Dataset for Abstractive Summarization of Long Multimodal Videoconference Records***. In Proceedings of the 20th International Conference on Content-based Multimedia Indexing, Orléans, 2023, [**[PDF]**](https://dl.acm.org/doi/10.1145/3617233.3617238)
 
