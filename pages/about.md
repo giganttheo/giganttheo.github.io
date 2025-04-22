@@ -17,4 +17,4 @@ I also share my own [research](/research) work, including papers and artifacts.
 
 ### Stay Connected
 
-If you're interested in discussing , I invite you to connect with me on [Twitter](https://twitter.com/gigant_theo), [LinkedIn](https://www.linkedin.com/in/theo-gigant/), [HuggingFace](https://huggingface.co/gigant), or reach out to me directly with questions, comments, or collaboration ideas at [my email](mailto:theo.gigant@l2s.centralesupelec.fr).
+If you're interested in discussing , I invite you to connect with me on [Twitter](https://twitter.com/gigant_theo), [LinkedIn](https://www.linkedin.com/in/theo-gigant/), or reach out to me directly with questions, comments, or collaboration ideas at [my email](mailto:theo.gigant@l2s.centralesupelec.fr).
