@@ -7,7 +7,7 @@ permalink: /about
 ### About me
 
 I'm Théo Gigant, a PhD candidate exploring the capabilities of language models and vision-language models to comprehend and summarize multimodal documents such as presentation records. 
-> [Here is my CV.](/assets/CV_GIGANT_2025.pdf).
+> [Here is my CV](/assets/CV_GIGANT_2025.pdf).
 
 ### What to Expect
 
