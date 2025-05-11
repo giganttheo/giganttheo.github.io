@@ -23,6 +23,7 @@ In 2022 I participated in the preprocessing of several datasets as part of the [
 
 ## Other Projects
 
+* [My blog](/): Where I am sharing some insights on my own research, as well as some reflections and opinions about Natural Language Processing, Computer Vision and Artificial Intelligence.
 * [Whisper Medium Romanian](https://huggingface.co/gigant/whisper-medium-romanian) (December 2022): State-of-the-art speech recognition model for Romanian, trained for the [Whisper Fine-Tuning Event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event). First in the leaderboard for Romanian ASR.
 * [Old Book Illustrations Dataset](https://huggingface.co/datasets/gigant/oldbookillustrations) (July 2022): Collection of 4172 public domain illustrations scanned from old books, collected from the Old Book Illustrations website with their agreement.
 * [WikiArt diffusion mini](https://github.com/giganttheo/distill-ccld) (May 2022): As part of HuggingFace's [HugGAN challenge](https://github.com/huggingface/community-events/tree/main/huggan), I worked on a distilled latent diffusion model for text-conditionned image generation trained on the WikiArt dataset of pieces of visual art.
