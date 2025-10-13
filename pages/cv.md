@@ -4,7 +4,8 @@ title: Research and Projects
 permalink: /research
 ---
 
-I am currently conducting research on summarization of multimodal presentations, for my PhD at Centrale Supélec / Université Paris-Saclay, under the supervision of Frédéric Dufaux and Camille Guinaudeau.
+I am currently working as research scientist at Nous Research.
+Previously, I defended my PhD thesis on summarization of multimodal presentations with language models, prepared at Centrale Supélec (Université Paris-Saclay) under the supervision of Frédéric Dufaux and Camille Guinaudeau.
 
 ## Tools
 
@@ -20,6 +21,10 @@ In 2022 I participated in the preprocessing of several datasets as part of the [
 
 * Le Scao, Teven, et al. ***Bloom: A 176b-parameter open-access multilingual language model***. 2022, [**[PDF]**](https://inria.hal.science/hal-03850124/)
 * Fries, Jason, et al. ***Bigbio: A framework for data-centric biomedical natural language processing.*** In Thirty-sixth Conference on Neural Information Processing Systems Datasets and Benchmarks Track, 2022, [**[PDF]**](https://proceedings.neurips.cc/paper_files/paper/2022/hash/a583d2197eafc4afdd41f5b8765555c5-Abstract-Datasets_and_Benchmarks.html)
+
+<!-- ## Rewards and Recognitions
+
+* Best presentation - L2S PhD day 2024 -->
 
 ## Other Projects
 
