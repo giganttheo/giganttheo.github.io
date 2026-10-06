@@ -40,6 +40,9 @@ h4, h5, h6 {
 /* Body */
 body {
   font-family: $base-font-family;
+  font-size: 18px;
+  color: $brand-color;
+  background-color: $paper-color;
 }
 body img {
   align: middle;
@@ -54,7 +57,7 @@ p {
   margin-bottom: 1em;
   margin-left: 0;
   margin-right: 0;
-  line-height: 1.65;
+  line-height: 1.75;
   font-family: $body-font-family;
 }
 
@@ -88,8 +91,11 @@ dd {
 */
 
 a {
-  color: $brand-color;
+  color: $muted-color;
   text-decoration: none;
+}
+a:hover {
+  color: $brand-color;
 }
 
 /*
@@ -99,9 +105,9 @@ a {
 blockquote {
   margin: 10px 20px 10px;
   padding: 0px 15px;
-  border-left: 0.25em solid #ccc;
-  color: #999;
-  line-height: 1.5;
+  border-left: 0.25em solid #d8d2c6;
+  color: $muted-color;
+  line-height: 1.75;
 }
 
 /**
@@ -114,7 +120,7 @@ table {
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid #d8d2c6;
 }
 th, td {
   padding: 15px;
