@@ -62,7 +62,7 @@ There is a catch in "automate what you don't care to master", and it's the stron
 
 So the people who say you need to know the craft are partly right. Where I disagree is about *which* part of the craft you need. You don't need to be able to play the guitar part. You need to be able to say why this take is worse than that one. That's the difference between a performer and an editor, and it's a much smaller (and different) investment.
 
-Rick Rubin, in his book *The Creative Act* ([Rick Rubin](https://en.wikipedia.org/wiki/Rick_Rubin)), puts a lot of weight on this kind of training: paying attention, taking in great work, developing the ability to notice. It's not glamorous advice, but it's the honest answer to "how do I use these tools without producing slop": consume a lot of good work in the medium, until you can tell what's off and why.
+[Rick Rubin](https://en.wikipedia.org/wiki/Rick_Rubin), in his book *The Creative Act*, puts a lot of weight on this kind of training: paying attention, taking in great work, developing the ability to notice. It's not glamorous advice, but it's the honest answer to "how do I use these tools without producing slop": consume a lot of good work in the medium, until you can tell what's off and why.
 
 My rule of thumb: **learn enough to judge, not enough to perform.** And where you can't judge, assume the model decided, and be honest about it, at least with yourself.
 
