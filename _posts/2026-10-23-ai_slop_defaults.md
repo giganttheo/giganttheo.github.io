@@ -54,6 +54,18 @@ Each of these hands decisions back to the human. A heavily controlled pipeline i
 
 The rule I try to follow is simple: **automate the execution in domains you don't care to master, and keep the decisions in the domains you do.** If I don't care how a function is spelled but care a lot about how the system is structured, delegating the spelling is fine. If I let the model also decide the structure, the result is no longer mine, and it will probably look like everybody else's.
 
+## Learn enough to judge, not enough to perform
+
+There is a catch in "automate what you don't care to master", and it's the strongest version of the artists' argument, so it deserves its own section.
+
+**You can only make decisions in the dimensions you can perceive.** If I don't know much about music, I won't hear that a bassline is generic. I'll accept it without noticing that I accepted anything. In that case the model didn't just execute for me, it quietly made a choice I didn't know existed. Skill in a medium isn't only the ability to execute; it's also the vocabulary that lets you *have intentions* in that medium at all.
+
+So the people who say you need to know the craft are partly right. Where I disagree is about *which* part of the craft you need. You don't need to be able to play the guitar part. You need to be able to say why this take is worse than that one. That's the difference between a performer and an editor, and it's a much smaller (and different) investment.
+
+Rick Rubin, in [The Creative Act](https://en.wikipedia.org/wiki/The_Creative_Act:_A_Way_of_Being), puts a lot of weight on this kind of training: paying attention, taking in great work, developing the ability to notice. It's not glamorous advice, but it's the honest answer to "how do I use these tools without producing slop": consume a lot of good work in the medium, until you can tell what's off and why.
+
+My rule of thumb: **learn enough to judge, not enough to perform.** And where you can't judge, assume the model decided, and be honest about it, at least with yourself.
+
 ## Curation is a creative act
 
 The other common objection is that even a controlled pipeline turns the creator into a *curator*: you're picking from outputs rather than making them. That's true. I just don't think it's the gotcha it's meant to be.
@@ -61,6 +73,8 @@ The other common objection is that even a controlled pipeline turns the creator 
 In 1917, Marcel Duchamp submitted a store-bought urinal, signed "R. Mutt", to an art exhibition. He didn't make the object. He chose it, framed it, and named it, and that act of selection is now one of the most discussed works of the twentieth century. You don't have to like *Fountain* to accept the point it made: choosing and framing can be the work.
 
 Curation is also most of what a film editor, a DJ, a magazine editor or an art director does. Nobody thinks these jobs are trivial, precisely because choosing well is hard. What makes curation creative is not the absence of making; it's the presence of constraints, criteria, and a point of view.
+
+Film is the clearest case. Films are routinely credited to their director, someone who usually doesn't act, light the set, operate the camera or write the score. This wasn't always obvious: it took the critics of the [auteur theory](https://en.wikipedia.org/wiki/Auteur_theory) (Truffaut in the 1950s, then Andrew Sarris in the 1960s) to argue that a film has an author, and that the author is the person whose decisions shape the whole. Music has its own version in producers like Rick Rubin, who openly says he isn't a technical musician, and whose contribution is knowing what he wants to hear and refusing everything else. Nobody says the records he produced aren't partly his.
 
 <!-- TODO: expand your 100k-outputs performance idea here. Suggested framing below. -->
 
@@ -98,13 +112,28 @@ The subtler issue is *style*. A model fine-tuned on one illustrator's portfolio 
 
 ### "It looks bad"
 
-This one I'll mostly dismiss, but not for the usual reason. The six-finger hands are mostly gone, and fidelity will keep improving. But that doesn't defeat the critique, it sharpens it: if the output gets more polished and still feels empty, then polish was never what made work good. Detail used to be a signal of effort and intent; now it's free, so it's not a signal of anything. That's an argument *for* my position. When execution is free, intent is the only thing left to judge.
+The best demonstration I know of how little this critique is about the image comes from [SHL0MS](https://x.com/SHL0MS/status/2054280631807316329) (who, for transparency, works at the same company I do). In May 2026 he posted a picture, said he had generated it "in the style of a Monet painting using AI", and asked people to explain in detail what made it inferior to a real Monet. Hundreds of confident critiques came in: muddy depth, colors that don't cohere, no focal point, no soul. The picture was a real Monet, one of the *Water Lilies*, with the signature cropped out. He then minted the whole exchange as an NFT called *Inferior Image*, which [sold for about $42,500](https://spectrum.ieee.org/ai-art-market).
+
+The lesson isn't that the critics are stupid; a lot of them clearly know painting. It's that once something is labeled AI, people stop looking and start applying a verdict. That should make all of us, me included, a bit humble about "I can always tell".
+
+As for the critique itself, I'll mostly dismiss it, but not for the usual reason. The six-finger hands are mostly gone, and fidelity will keep improving. But that doesn't defeat the critique, it sharpens it: if the output gets more polished and still feels empty, then polish was never what made work good. Detail used to be a signal of effort and intent; now it's free, so it's not a signal of anything. That's an argument *for* my position. When execution is free, intent is the only thing left to judge.
 
 ### Skill atrophy
 
-This is the critique I agree with most. If you delegate everything, you lose the ability to do it yourself, and more importantly, you lose the ability to *judge* what the tool gives you. You can't spot a subtle bug in code you could never have written, and you can't tell a good composition from an average one if you've never had to compose.
+This is the critique I agree with most, and it's the flip side of the "learn enough to judge" section above. If you delegate everything, you lose the ability to do it yourself, and more importantly, you lose the ability to *judge* what the tool gives you. You can't spot a subtle bug in code you could never have read. Using AI with intent requires *more* judgment, not less, and the people best placed to use these tools well are often the ones who could do without them.
 
-That's the catch in "automate what you don't care to master": you still need enough skill to evaluate the output, otherwise you're not choosing, you're just accepting. Using AI with intent requires *more* taste and judgment, not less. The people best placed to use these tools well are often the ones who could do without them.
+## Meaning and provenance
+
+If the decisions are what make a work yours, why do so many people still feel that AI-assisted work is worth less, even when the decisions are clearly human? I think it's because we value works for two different reasons, and we rarely separate them.
+
+- **Meaning**: what the work says, how it's put together, what it makes you feel. This depends on the decisions behind it, and it can survive the use of any tool, including AI, if those decisions were made deliberately.
+- **Provenance**: the fact that a person spent the hours. The friction you can see, the steps nobody did for them.
+
+A handmade wooden table is a good example of provenance value. An IKEA table holds your plates just as well; the handmade one is more expensive because of the hours and the hands behind it. Plenty of art carries both kinds of value, and for a lot of audiences, visible effort is part of how they relate to a work. It's a signal of care, a shared human cost.
+
+Generative AI doesn't really threaten meaning. It threatens provenance, because it makes effort invisible and unverifiable. *Inferior Image* is the cleanest proof: the same pixels went from "obviously a masterpiece" to "obviously slop" depending only on what people believed about how they were made.
+
+I don't think this is irrational, and I don't think it goes away. My guess is that it will become its own market, the way it already did for furniture, bread, or clothes. I would not be surprised to see "artisanal" code in a few years: software written entirely by humans, sold at a premium, with the provenance as the selling point. That's fine. It just means we should be clear about which value we're talking about. "This took no effort" is a statement about provenance. "This says nothing" is a statement about meaning. Only the second one is a critique of the work.
 
 ## Who made the decisions?
 
