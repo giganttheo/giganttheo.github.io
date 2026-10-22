@@ -7,7 +7,7 @@ category: ai creativity
 image: chimpanzee-typewriter.jpg
 ---
 
-*Illustration: An AI agent, probably not writing Hamlet (New York Zoological Society, c. 1907, public domain)*
+*Illustration: An AI agent, probably not writing Hamlet (New York Zoological Society, 1906, public domain)*
 
 <!-- TODO: personal hook. Replace this paragraph with a real example of your own (a track, a render, a codebase). Draft version below uses a generic one. -->
 
