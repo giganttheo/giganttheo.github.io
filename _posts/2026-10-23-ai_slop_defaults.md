@@ -9,11 +9,17 @@ image: chimpanzee-typewriter.jpg
 
 *Illustration: An AI agent, probably not writing Hamlet (New York Zoological Society, 1906, public domain)*
 
-<!-- TODO: personal hook. Replace this paragraph with a real example of your own (a track, a render, a codebase). Draft version below uses a generic one. -->
+Here is a 3D render I made in Blender, a professional, open-source 3D suite used in films and games. No AI was involved at any point.
 
-Open FL Studio, load the default kick, drop a stock 808 pattern, pick the first preset on the first synth you find, and you will have a beat in ten minutes. It will sound like ten thousand other beats. Nobody calls this "DAW slop", but everybody who has spent time on SoundCloud knows exactly what it sounds like.
+<!-- TODO: take your own screenshot: open Blender, delete the default cube, Add > Mesh > Monkey, (optionally hit F12 to render with default settings), save as assets/img/blender-suzanne-default.png -->
+<img src="{{site.baseurl}}/assets/img/blender-suzanne-default.png" width="600" />
+<p style="text-align:center;">A handmade, 100% human, AI-free 3D artwork</p>
 
-The same goes for Unreal Engine scenes with the default sky and the default lighting, for stock-template websites, for photos taken on auto mode of a sunset. None of these tools is bad. They all have a default setting, and the default setting is where taste goes to die.
+So it isn't slop, is it?
+
+Anyone who has opened Blender recognizes it immediately. This is Suzanne, the monkey head that ships with the software as a test mesh, sitting in the default scene, under the default light, seen through the default camera. It took me less than a minute, and I didn't make a single decision that mattered. It's the 3D equivalent of a beat made from the first FL Studio preset, a stock website template, or a sunset photographed in auto mode.
+
+None of these tools is bad. They all have a default setting, and the default setting is where nobody decided anything.
 
 **"Slop" is not a property of a medium. It is what you get when nobody made any decisions.**
 
