@@ -12,8 +12,9 @@ image: chimpanzee-typewriter.jpg
 Here is a 3D render I made in Blender, a professional, open-source 3D suite used in films and games. No AI was involved at any point.
 
 <!-- TODO: take your own screenshot: open Blender, delete the default cube, Add > Mesh > Monkey, (optionally hit F12 to render with default settings), save as assets/img/blender-suzanne-default.png -->
-<img src="{{site.baseurl}}/assets/img/blender-suzanne-default.png" width="600" />
-<p style="text-align:center;">A handmade, 100% human, AI-free 3D artwork</p>
+<img src="{{site.baseurl}}/assets/img/blender-suzanne-default.jpg" width="600" />
+<!-- PLACEHOLDER image: Blender_suzanne.jpg by Ausis, CC BY 3.0 (Wikimedia Commons). Attribution below is required while it is used; remove both when you swap in your own render. -->
+<p style="text-align:center;">A handmade, 100% human, AI-free 3D artwork<br><small>(placeholder image: <a href="https://commons.wikimedia.org/wiki/File:Blender_suzanne.jpg">Ausis</a>, CC BY 3.0)</small></p>
 
 So it isn't slop, is it?
 
