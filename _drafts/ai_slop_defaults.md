@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TODO title"
+title: "Give Shakespeare Infinite Monkeys; Anatomy of Slop"
 author: Théo Gigant
 use_math: false
 category: ai creativity
