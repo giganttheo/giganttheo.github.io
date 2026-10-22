@@ -4,10 +4,10 @@ title: "Give Shakespeare Infinite Monkeys; Anatomy of Slop"
 author: Théo Gigant
 use_math: false
 category: ai creativity
-image: TODO.jpg
+image: chimpanzee-typewriter.jpg
 ---
 
-*Illustration: Fountain (Marcel Duchamp, 1917, photographed by Alfred Stieglitz)*
+*Illustration: An AI agent, probably not writing Hamlet (New York Zoological Society, c. 1907, public domain)*
 
 <!-- TODO: personal hook. Replace this paragraph with a real example of your own (a track, a render, a codebase). Draft version below uses a generic one. -->
 
