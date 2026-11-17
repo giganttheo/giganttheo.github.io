@@ -14,9 +14,12 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           "Théo Gigant"
-description:	       "Théo Gigant, PhD student working on multimodal summarization @ L2S"
+description:	       "Théo Gigant, research scientist @ nous research"
 author:              "Théo Gigant"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
 #  path: rss-feed.xml
+
+# Hide the twitter/linkedin share buttons at the bottom of posts
+hide_post_share:      true
