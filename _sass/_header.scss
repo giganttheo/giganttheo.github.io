@@ -1,7 +1,7 @@
 .site-header {
   min-height: $header-thickness;
   width: $container-width;
-  position: fixed;
+  position: absolute;
   background-color: transparent;
   z-index: 100;
 }
@@ -9,7 +9,7 @@
   .site-header {
     min-height: $header-thickness;
     width: 95vw;
-    position: fixed;
+    position: absolute;
     background-color: transparent;
     z-index: 100;
   }
